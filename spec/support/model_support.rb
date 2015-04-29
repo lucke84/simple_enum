@@ -38,7 +38,7 @@ module ModelSupport
           instance_eval &block if block_given?
 
           def self.model_name
-            @model_name ||= ActiveModel::Name.new(self, nil, "FakeModel")
+            @model_name ||= ActiveModel::Name.new(self, nil, 'FakeModel')
           end
         end
       }

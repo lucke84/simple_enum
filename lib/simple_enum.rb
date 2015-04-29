@@ -28,7 +28,7 @@ module SimpleEnum
   @@builder = :default
 
   mattr_accessor :suffix
-  @@suffix = "_cd"
+  @@suffix = '_cd'
 
   mattr_accessor :field
   @@field = {}

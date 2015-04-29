@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SimpleEnum::Enum do
   let(:hash) do
-    { "male" => 0, "female" => 1 }
+    { 'male' => 0, 'female' => 1 }
   end
 
   fake_model(:klass)
@@ -102,7 +102,7 @@ describe SimpleEnum::Enum do
 
   context '#values_at' do
     it 'fetches multiple values by string' do
-      expect(subject.values_at("male", "female")).to eq [0, 1]
+      expect(subject.values_at('male', 'female')).to eq [0, 1]
     end
 
     it 'fetches multiple values by symbol' do

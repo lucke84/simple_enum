@@ -16,7 +16,7 @@ describe SimpleEnum::Attribute do
         def generate_enum_spec_extension_for(enum, accessor)
           module_eval { attr_accessor :some_reader }
           simple_enum_module.module_eval do
-            define_method("extension_method") { "as_enum(#{enum.name})" }
+            define_method('extension_method') { "as_enum(#{enum.name})" }
           end
         end
       end
@@ -32,12 +32,12 @@ describe SimpleEnum::Attribute do
     end
 
     it 'calls generate_enum_spec_extension_for during as_enum' do
-      expect(subject.extension_method).to eq "as_enum(gender)"
+      expect(subject.extension_method).to eq 'as_enum(gender)'
     end
 
     it 'allows to add behavior to class itself (e.g. attr_accessor)' do
-      subject.some_reader = "some value"
-      expect(subject.some_reader).to eq "some value"
+      subject.some_reader = 'some value'
+      expect(subject.some_reader).to eq 'some value'
     end
   end
 
@@ -104,7 +104,7 @@ describe SimpleEnum::Attribute do
         expect(subject.gender_changed?).to be_truthy
       end
 
-      it 'delegates #gender_was to accesso' do
+      it 'delegates #gender_was to accessor' do
         expect(accessor).to receive(:was).with(subject) { :female }
         expect(subject.gender_was).to eq :female
       end

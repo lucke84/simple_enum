@@ -13,8 +13,8 @@ task :spec do
 end
 
 # Mongodb
-directory "tmp/mongodb.data"
+directory 'tmp/mongodb.data'
 desc 'Run mongodb in tmp/'
 task :mongodb => [:'tmp/mongodb.data'] do |t|
-  system "mongod", "--dbpath", "tmp/mongodb.data"
+  system 'mongod', '--dbpath', 'tmp/mongodb.data'
 end

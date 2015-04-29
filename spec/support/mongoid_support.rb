@@ -3,7 +3,7 @@ require 'mongoid'
 module MongoidSupport
   def self.connection
     @connection ||= begin
-      Mongoid.configure.connect_to("simple_enum_mongoid_test")
+      Mongoid.configure.connect_to('simple_enum_mongoid_test')
       Mongoid.default_session.options[:max_retries] = 0
     end
     Mongoid.default_session
@@ -14,7 +14,7 @@ module MongoidSupport
       begin
         MongoidSupport.connection.collection_names
       rescue Moped::Errors::ConnectionFailure
-        skip "Start MongoDB server to run Mongoid integration tests..."
+        skip 'Start MongoDB server to run Mongoid integration tests...'
       end
     }
   end

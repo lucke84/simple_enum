@@ -11,7 +11,7 @@ module SimpleEnum
       end
 
       def prefix
-        @cached_prefix ||= @prefix && "#{@prefix == true ? name : @prefix}_" || ""
+        @cached_prefix ||= @prefix && "#{@prefix == true ? name : @prefix}_" || ''
       end
 
       def read(object)

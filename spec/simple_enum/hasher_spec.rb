@@ -8,7 +8,7 @@ describe SimpleEnum::Hasher do
     subject { described_class.map(%w{male female}, map: :string) }
 
     it 'uses DefaultHasher by default' do
-      result = { "male" => 0, "female" => 1 }
+      result = { 'male' => 0, 'female' => 1 }
       expect(described_class.map(%w{male female})).to eq result
     end
 
@@ -18,19 +18,19 @@ describe SimpleEnum::Hasher do
     end
 
     it 'uses the builder supplied if available' do
-      result = { "male" => "male", "female" => "female" }
+      result = { 'male' => 'male', 'female' => 'female' }
       expect(subject).to eq result
     end
 
     it 'accepts a Proc as well' do
-      proc =  ->(hash) { { "static" => 1 } }
-      result = { "static" => 1 }
+      proc =  ->(hash) { { 'static' => 1 } }
+      result = { 'static' => 1 }
       expect(described_class.map(%w{male female}, map: proc) ).to eq result
     end
   end
 
   context 'DefaultHasher.call' do
-    let(:result) do; { "male" => 0, "female" => 1 } end
+    let(:result) do; { 'male' => 0, 'female' => 1 } end
 
     it 'returns string => index for Array of strings' do
       expect(subject::DefaultHasher.call(%w{male female})).to eq result
@@ -50,7 +50,7 @@ describe SimpleEnum::Hasher do
   end
 
   context 'StringHasher.call' do
-    let(:result) do; { "male" => "male", "female" => "female" } end
+    let(:result) do; { 'male' => 'male', 'female' => 'female' } end
 
     it 'retuns string => string for Array of strings' do
       expect(subject::StringHasher.call(%w{male female})).to eq result

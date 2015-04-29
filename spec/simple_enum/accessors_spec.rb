@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SimpleEnum::Accessors do
-  let(:enum) { SimpleEnum::Enum.new(:gender, "male" => 0, "female" => 1) }
+  let(:enum) { SimpleEnum::Enum.new(:gender, 'male' => 0, 'female' => 1) }
   fake_model(:klass)
   let(:object) { klass.new }
 
@@ -21,7 +21,7 @@ describe SimpleEnum::Accessors do
 
   context '.register_accessor' do
     let(:accessor) { Class.new { def initialize(*args); end } }
-    subject { described_class.accessor(:gender, "enum", accessor: :would_be) }
+    subject { described_class.accessor(:gender, 'enum', accessor: :would_be) }
 
     before { SimpleEnum.register_accessor :would_be, accessor }
     after { SimpleEnum::Accessors::ACCESSORS.delete(:would_be) }
@@ -200,8 +200,8 @@ describe SimpleEnum::Accessors do
       expect(subject).to be_a(ActiveRecord::Relation)
     end
 
-    it "queries for gender_cd = 1" do
-      values_hash = { "gender_cd" => 1 }
+    it 'queries for gender_cd = 1' do
+      values_hash = { 'gender_cd' => 1 }
       expect(subject.where_values_hash).to eq values_hash
     end
   end
